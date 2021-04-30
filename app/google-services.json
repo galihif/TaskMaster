@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "987213376728",
+    "project_id": "taskmaster-test",
+    "storage_bucket": "taskmaster-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987213376728:android:f23e1acc884bb771167bad",
+        "android_client_info": {
+          "package_name": "com.giftech.taskmastertest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987213376728-usndv4bi9cvvabj325qhdr1574j0chg8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6fFFPYLAxabAmEsQE1P-9_dfau8DDsCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987213376728-usndv4bi9cvvabj325qhdr1574j0chg8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

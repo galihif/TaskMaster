@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue_200">#46469f</color>
+    <color name="blue_500">#061f70</color>
+    <color name="blue_700">#000044</color>
+    <color name="grey_200">#eeeeee</color>
+    <color name="grey_700">#bcbcbc</color>
+    <color name="black_200">#252525</color>
+    <color name="black">#FF000000</color>
+    <color name="task_title_black">#424242</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green_200">#C6E6C5</color>
+    <color name="green_500">#1B9B19</color>
+    <color name="lightblue_200">#DCE1FF</color>
+    <color name="lightblue_500">#7487FF</color>
+    <color name="red_200">#FFB8B8</color>
+    <color name="red_500">#FF7474</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+
+</resources>

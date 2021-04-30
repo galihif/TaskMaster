@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">TaskMaster Test</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="server_client_id" translatable="false">987213376728-omjbes2choredlhskhldni70loepq15v.apps.googleusercontent.com</string>
+    <string name="appwidget_text" translatable="false">EXAMPLE</string>
+    <string name="configure" translatable="false">Configure</string>
+    <string name="add_widget" translatable="false">Add widget</string>
+    <string name="user_completed_task">\nCompleted Tasks</string>
+    <string name="hello_user">Hello,</string>
+    <string name="today">Today</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="intro1_title">Be Organized</string>
+    <string name="intro1_desc">Organize your task to make it\n easier to track and keep you\n from procastinations</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="intro2_title">Get Enjoy</string>
+    <string name="intro2_desc">You can enjoy your life if you can manage your time with task</string>
+    <string name="intro3_title">Achieve your goal</string>
+    <string name="intro3_desc">Achieve anything you want in life by completing a small task</string>
+    <string name="get_started">Get Started</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="doesn_t_have_an_account">Doesn\'t have an account?</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="add_task">Add Task</string>
+    <string name="add_title">Title</string>
+    <string name="add_date">Date</string>
+    <string name="add_time">Time</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="no_complete_task">You have no completed task.\nTick on a task to complete it</string>
+    <string name="no_today_task">You have no task for today.\nAdd some with a button below</string>
+    <string name="no_upcoming_task">You have no upcoming task.\nAdd some with a button below</string>
+    <string name="notif_dont_forget">Dont forget to</string>
+</resources>

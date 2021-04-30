@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TaskMaster Test</string>
+    <string name="user_completed_task">" Tugas Selesai"</string>
+    <string name="hello_user">Halo</string>
+    <string name="today">Hari Ini</string>
+    <string name="upcoming">Akan Datang</string>
+    <string name="intro1_title">Jadilah Teratur</string>
+    <string name="intro1_desc">Atur tugas Anda agar lebih mudah terorganisir dan menjauhkan Anda dari menunda-nunda</string>
+    <string name="skip">Lewati</string>
+    <string name="next">Selanjutnya</string>
+    <string name="intro2_title">Jadilah Santai</string>
+    <string name="intro2_desc">Anda dapat menikmati hidup Anda jika Anda dapat mengatur waktu Anda dengan tugas</string>
+    <string name="intro3_title">Raih Tujuanmu</string>
+    <string name="intro3_desc">Raih apapun yang kamu inginkan dimulai dari menyelesaikan tugas-tugas kecil</string>
+    <string name="get_started">Memulai</string>
+    <string name="welcome_back">Selamat Datang Kembali</string>
+    <string name="doesn_t_have_an_account">Gak punya akun?</string>
+    <string name="already_have_an_account">Dah punya akun?</string>
+    <string name="name">Nama</string>
+    <string name="password">Kata Sandi</string>
+    <string name="add_task">Tambah Tugas</string>
+    <string name="add_title">Judul</string>
+    <string name="add_date">Tanggal</string>
+    <string name="add_time">Waktu</string>
+    <string name="cancel">Batal</string>
+    <string name="add">Tambah</string>
+    <string name="no_complete_task">Kamu ga punya tugas selesai.\nCentang pada tugas buat menyelesaikan</string>
+    <string name="no_today_task">Kamu ga punya tugas buat hari ini.\nCoba tambahin pake tombol di bawah</string>
+    <string name="no_upcoming_task">Kamu ga punya tugas buat besok.\nCoba tambahin pake tombol di bawah</string>
+    <string name="notif_dont_forget">Eh jangan lupa</string>
+</resources>

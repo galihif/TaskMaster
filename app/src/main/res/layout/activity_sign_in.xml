@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_shape_signup"
         android:elevation="60dp"
-        android:paddingVertical="48dp"
+        android:paddingVertical="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -64,8 +64,8 @@
             android:background="@drawable/bg_shape_google"
             android:clickable="true"
             android:elevation="6dp"
-            android:paddingHorizontal="60dp"
-            android:paddingVertical="17dp"
+            android:paddingHorizontal="56dp"
+            android:paddingVertical="16dp"
             android:src="@drawable/ic_google"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="parent" />

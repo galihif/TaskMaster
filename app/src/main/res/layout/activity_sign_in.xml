@@ -91,7 +91,7 @@
             android:background="@drawable/bg_shape_signup_btn"
             android:clickable="true"
             android:drawableRight="@drawable/ic_signup_arrow"
-            android:drawablePadding="12dp"
+            android:drawablePadding="8dp"
             android:elevation="6dp"
             android:padding="16dp"
             android:text="Sign In"

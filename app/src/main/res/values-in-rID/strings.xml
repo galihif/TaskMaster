@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TaskMaster Test</string>
+    <string name="app_name">TaskMaster</string>
     <string name="user_completed_task">" Tugas Selesai"</string>
     <string name="hello_user">Halo</string>
     <string name="today">Hari Ini</string>

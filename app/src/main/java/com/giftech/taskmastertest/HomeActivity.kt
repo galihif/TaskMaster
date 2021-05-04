@@ -184,11 +184,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun createNotificationChannel() {
-        var name:CharSequence = "LemubitReminderChannel"
-        var description = "Channel for Lemubit reminder"
+        var name:CharSequence = "Task Reminder"
+        var description = "Reminder for task"
         var importance = NotificationManager.IMPORTANCE_DEFAULT
 
-        var channel = NotificationChannel("notifyLemubit", name, importance)
+        var channel = NotificationChannel("notifyTaskmaster", name, importance)
         channel.description = description
 
         var notificationManager = getSystemService(NotificationManager::class.java)

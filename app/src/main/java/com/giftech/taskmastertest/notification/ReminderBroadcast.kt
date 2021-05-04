@@ -29,7 +29,7 @@ class ReminderBroadcast: BroadcastReceiver() {
 
         var title = intent!!.getStringExtra("title")
 
-        var builder = NotificationCompat.Builder(context!!, "notifyLemubit")
+        var builder = NotificationCompat.Builder(context!!, "notifyTaskmaster")
             .setContentTitle("Hello "+userName)
             .setContentText("Don't forget to "+title)
             .setSmallIcon(R.drawable.ic_logo_white)

@@ -26,6 +26,7 @@
         android:textColor="@color/blue_500"
         android:textSize="32sp"
         android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -39,6 +40,7 @@
         android:text="@string/intro2_desc"
         android:textColor="@color/blue_500"
         android:textSize="18sp"
+        android:fontFamily="@font/poppins_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -60,6 +62,7 @@
         android:text="@string/skip"
         android:textColor="@color/blue_500"
         android:textSize="24sp"
+        android:fontFamily="@font/poppins_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -71,6 +74,7 @@
         android:textColor="@color/blue_500"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
         android:drawableRight="@drawable/ic_arrow"
         android:drawablePadding="12dp"
         app:layout_constraintBottom_toBottomOf="parent"

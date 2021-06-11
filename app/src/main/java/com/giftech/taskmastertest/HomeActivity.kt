@@ -205,6 +205,8 @@ class HomeActivity : AppCompatActivity() {
 
         var timeAtButtonClick: Long = System.currentTimeMillis()
 
+        var calendar = Calendar.getInstance()
+
         alarmManager.set(AlarmManager.RTC_WAKEUP, task.timeMillis.toLong(), pendingIntent)
 
     }

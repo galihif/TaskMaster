@@ -49,7 +49,8 @@
                         android:text="@string/hello_user"
                         android:textColor="@color/white"
                         android:textSize="22dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_semibold" />
 
                     <ImageView
                         android:id="@+id/btn_logout"
@@ -75,6 +76,7 @@
                         android:text="@string/today"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        android:fontFamily="@font/poppins_medium"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -123,6 +125,7 @@
                         android:text="@string/upcoming"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        android:fontFamily="@font/poppins_medium"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 

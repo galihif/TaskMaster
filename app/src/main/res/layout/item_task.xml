@@ -20,6 +20,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/task_title_black"
+        android:fontFamily="@font/poppins_semibold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,11 +33,12 @@
         android:drawablePadding="8dp"
         android:gravity="center_vertical"
         android:paddingHorizontal="8dp"
-        android:paddingVertical="6dp"
+        android:paddingVertical="4dp"
         android:text="22/01/2022"
         android:textColor="@color/green_500"
         android:textSize="12dp"
         android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -50,11 +52,12 @@
         android:drawablePadding="8dp"
         android:gravity="center_vertical"
         android:paddingHorizontal="8dp"
-        android:paddingVertical="6dp"
+        android:paddingVertical="4dp"
         android:text="12:00"
         android:textColor="@color/lightblue_500"
         android:textSize="12dp"
         android:textStyle="bold"
+        android:fontFamily="@font/poppins_semibold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_task_date" />
 

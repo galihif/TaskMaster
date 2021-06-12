@@ -11,6 +11,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green_200">#C6E6C5</color>
     <color name="green_500">#1B9B19</color>
+    <color name="green_intro">#B2FFA6</color>
     <color name="lightblue_200">#DCE1FF</color>
     <color name="lightblue_500">#7487FF</color>
     <color name="red_200">#FFB8B8</color>

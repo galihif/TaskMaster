@@ -27,15 +27,15 @@ class ReminderBroadcast: BroadcastReceiver() {
         user = auth.currentUser
         userName = user.displayName.toString()
 
-        var title = intent!!.getStringExtra("title")
+        val title = intent!!.getStringExtra("title")
 
-        var builder = NotificationCompat.Builder(context!!, "notifyTaskmaster")
-            .setContentTitle("Hello "+userName)
-            .setContentText("Don't forget to "+title)
+        val builder = NotificationCompat.Builder(context!!, "notifyTaskmaster")
+            .setContentTitle(context.getString(R.string.notif_hello)+" "+userName)
+            .setContentText(context.getString(R.string.notif_dont_forget)+" "+title)
             .setSmallIcon(R.drawable.ic_logo_white)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
-        var notificationManager = NotificationManagerCompat.from(context)
+        val notificationManager = NotificationManagerCompat.from(context)
 
         notificationManager.notify(200, builder.build())
     }

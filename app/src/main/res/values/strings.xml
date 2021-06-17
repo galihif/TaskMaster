@@ -33,5 +33,6 @@
     <string name="no_complete_task">You have no completed task.\nTick on a task to complete it</string>
     <string name="no_today_task">You have no task for today.\nAdd some with a button below</string>
     <string name="no_upcoming_task">You have no upcoming task.\nAdd some with a button below</string>
-    <string name="notif_dont_forget">Dont forget to</string>
+    <string name="notif_hello">Hello </string>
+    <string name="notif_dont_forget">Dont forget to </string>
 </resources>

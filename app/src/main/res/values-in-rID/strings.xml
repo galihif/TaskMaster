@@ -29,4 +29,5 @@
     <string name="no_today_task">Kamu ga punya tugas buat hari ini.\nCoba tambahin pake tombol di bawah</string>
     <string name="no_upcoming_task">Kamu ga punya tugas buat besok.\nCoba tambahin pake tombol di bawah</string>
     <string name="notif_dont_forget">Eh jangan lupa</string>
+    <string name="notif_hello">Halo</string>
 </resources>

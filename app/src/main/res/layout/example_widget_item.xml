@@ -3,7 +3,7 @@
     android:id="@+id/example_widget_item_text"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="left"
+    android:gravity="center"
     android:layout_marginVertical="8dp"
     android:textColor="@color/black"
     android:textSize="20sp" />

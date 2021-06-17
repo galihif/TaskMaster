@@ -59,7 +59,7 @@ class ExampleWidgetProvider : AppWidgetProvider() {
 
             val views = RemoteViews(context.packageName, R.layout.example_widget)
             views.setRemoteAdapter(R.id.example_widget_stack_view, serviceIntent)
-//            views.setOnClickPendingIntent(R.id.btn_refresh, refreshIntent)
+            views.setOnClickPendingIntent(R.id.btn_refresh, refreshIntent)
             views.setEmptyView(R.id.example_widget_stack_view, R.id.example_widget_empty_view)
             views.setPendingIntentTemplate(R.id.example_widget_stack_view, clickPendingIntent)
             

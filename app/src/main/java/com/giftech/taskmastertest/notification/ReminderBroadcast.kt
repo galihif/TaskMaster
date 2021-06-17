@@ -34,6 +34,8 @@ class ReminderBroadcast: BroadcastReceiver() {
             .setContentText(context.getString(R.string.notif_dont_forget)+" "+title)
             .setSmallIcon(R.drawable.ic_logo_white)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setGroup("notifyTaskmaster")
+            .setGroupSummary(true)
 
         val notificationManager = NotificationManagerCompat.from(context)
 

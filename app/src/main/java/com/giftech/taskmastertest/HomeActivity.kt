@@ -40,6 +40,7 @@ class HomeActivity : AppCompatActivity() {
 
     private var todayList: ArrayList<Task> = arrayListOf()
     private var upcomingList: ArrayList<Task> = arrayListOf()
+    private var taskList: ArrayList<Task> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,17 +55,6 @@ class HomeActivity : AppCompatActivity() {
         user = auth.currentUser
         userId = user.uid.toString()
         userName = user.displayName.toString()
-
-//        val acct = GoogleSignIn.getLastSignedInAccount(this)
-//        if (acct != null) {
-//            val personName = acct.displayName
-//            val personEmail = acct.email
-//            val personId = acct.id
-//            val personPhoto: Uri? = acct.photoUrl
-//            userId = personId.toString()
-//            userName = personName.toString()
-//            userEmail = personEmail.toString()
-//        }
 
         tv_hello.text = getString(R.string.hello_user)+" "+userName+"!"
 
@@ -195,20 +185,17 @@ class HomeActivity : AppCompatActivity() {
         notificationManager.createNotificationChannel(channel)
     }
 
-    private fun setNotification(task: Task) {
+    private fun setNotification(task: Task, code:Int) {
 
         var intent = Intent(this, ReminderBroadcast::class.java)
         intent.putExtra("title", task.title)
-        var pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        var pendingIntent = PendingIntent.getBroadcast(this, code, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
 
-        var timeAtButtonClick: Long = System.currentTimeMillis()
-
-        var calendar = Calendar.getInstance()
-
-        alarmManager.set(AlarmManager.RTC_WAKEUP, task.timeMillis.toLong(), pendingIntent)
-
+        if(task.timeMillis.toLong() >= System.currentTimeMillis()){
+            alarmManager.set(AlarmManager.RTC_WAKEUP, task.timeMillis.toLong(), pendingIntent)
+        }
     }
 
 
@@ -260,6 +247,7 @@ class HomeActivity : AppCompatActivity() {
                                 } else {
                                     upcomingList.add(task)
                                 }
+                                taskList.add(task)
                             }
                         }
                         refreshList()
@@ -268,13 +256,16 @@ class HomeActivity : AppCompatActivity() {
                             tv_no_task_today.visibility = View.VISIBLE
                         } else {
                             tv_no_task_today.visibility = View.GONE
-                            setNotification(todayList[0])
                         }
 
                         if (upcomingList.size == 0) {
                             tv_no_task_upcoming.visibility = View.VISIBLE
                         } else {
                             tv_no_task_upcoming.visibility = View.GONE
+                        }
+
+                        taskList.forEach {
+                            setNotification(it, taskList.indexOf(it))
                         }
                     }
 

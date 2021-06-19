@@ -28,6 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
+
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
@@ -58,7 +60,6 @@
                         android:layout_height="match_parent"
                         android:src="@drawable/ic_logout" />
                 </LinearLayout>
-
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/container_today"
@@ -109,6 +110,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
@@ -122,10 +124,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24dp"
+                        android:fontFamily="@font/poppins_medium"
                         android:text="@string/upcoming"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:fontFamily="@font/poppins_medium"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -153,6 +155,18 @@
                         app:layout_constraintTop_toBottomOf="@+id/tv_upcoming" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/spinner_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:visibility="visible"
+                    app:indicatorColor="@color/blue_500"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

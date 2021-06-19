@@ -224,6 +224,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun addDataToList(date: String) {
+        spinner_home.visibility = View.VISIBLE
         //ValueEventListener untuk mengambil data dari firebase dengan child goal user tsb
         database
                 .child("users")
@@ -251,6 +252,9 @@ class HomeActivity : AppCompatActivity() {
                             }
                         }
                         refreshList()
+
+
+                        spinner_home.visibility = View.INVISIBLE
 
                         if (todayList.size == 0) {
                             tv_no_task_today.visibility = View.VISIBLE

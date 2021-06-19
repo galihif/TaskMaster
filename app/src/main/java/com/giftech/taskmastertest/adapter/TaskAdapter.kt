@@ -71,6 +71,8 @@ class TaskAdapter(mContext: Context, private var taskList: ArrayList<Task>)
                         .child(task.id.toString())
                         .child("completed")
                         .setValue(task.completed)
+
+                Toast.makeText(context,"Task ${task.title} Completed", Toast.LENGTH_LONG).show()
             }
 
         }

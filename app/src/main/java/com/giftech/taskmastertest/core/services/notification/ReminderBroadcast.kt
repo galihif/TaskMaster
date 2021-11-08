@@ -1,4 +1,4 @@
-package com.giftech.taskmastertest.notification
+package com.giftech.taskmastertest.core.services.notification
 
 import android.content.BroadcastReceiver
 import android.content.Context

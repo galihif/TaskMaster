@@ -1,4 +1,4 @@
-package com.giftech.taskmastertest.utils
+package com.giftech.taskmastertest.core.utils
 
 import android.content.Context
 import android.content.SharedPreferences

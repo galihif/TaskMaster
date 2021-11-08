@@ -1,4 +1,4 @@
-package com.giftech.taskmastertest.adapter
+package com.giftech.taskmastertest.core.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.giftech.taskmastertest.R
-import com.giftech.taskmastertest.model.Task
-import com.giftech.taskmastertest.utils.Preferences
+import com.giftech.taskmastertest.core.model.Task
+import com.giftech.taskmastertest.core.utils.Preferences
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth

@@ -1,4 +1,4 @@
-package com.giftech.taskmastertest.model
+package com.giftech.taskmastertest.core.model
 
 class User {
     var name:String =""

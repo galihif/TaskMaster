@@ -1,4 +1,4 @@
-package com.giftech.taskmastertest.widget
+package com.giftech.taskmastertest.ui.widget
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -10,7 +10,7 @@ import android.os.Bundle
 import android.widget.RemoteViews
 import android.widget.Toast
 import com.giftech.taskmastertest.ExampleAppWidgetConfig
-import com.giftech.taskmastertest.HomeActivity
+import com.giftech.taskmastertest.ui.HomeActivity
 import com.giftech.taskmastertest.R
 
 

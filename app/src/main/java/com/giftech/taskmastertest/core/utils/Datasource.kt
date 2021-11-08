@@ -1,9 +1,9 @@
-package com.giftech.taskmastertest
+package com.giftech.taskmastertest.core.utils
 
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import com.giftech.taskmastertest.model.Task
+import com.giftech.taskmastertest.core.model.Task
 
 class Datasource {
     private val taskTitles = arrayListOf<String>(

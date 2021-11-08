@@ -1,4 +1,4 @@
-package com.giftech.taskmastertest.widget
+package com.giftech.taskmastertest.ui.widget
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
@@ -8,8 +8,8 @@ import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import com.giftech.taskmastertest.R
-import com.giftech.taskmastertest.model.Task
-import com.giftech.taskmastertest.utils.Preferences
+import com.giftech.taskmastertest.core.model.Task
+import com.giftech.taskmastertest.core.utils.Preferences
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser

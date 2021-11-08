@@ -1,10 +1,10 @@
-package com.giftech.taskmastertest.intro
+package com.giftech.taskmastertest.ui.intro
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.giftech.taskmastertest.R
-import com.giftech.taskmastertest.sign.SignUpActivity
+import com.giftech.taskmastertest.ui.sign.SignUpActivity
 import kotlinx.android.synthetic.main.activity_intro3.*
 
 class Intro3Activity : AppCompatActivity() {

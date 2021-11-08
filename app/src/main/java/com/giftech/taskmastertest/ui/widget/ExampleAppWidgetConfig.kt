@@ -9,8 +9,9 @@ import android.view.View
 import android.widget.EditText
 import android.widget.RemoteViews
 import androidx.appcompat.app.AppCompatActivity
-import com.giftech.taskmastertest.widget.ExampleWidgetProvider
-import com.giftech.taskmastertest.widget.ExampleWidgetService
+import com.giftech.taskmastertest.ui.HomeActivity
+import com.giftech.taskmastertest.ui.widget.ExampleWidgetProvider
+import com.giftech.taskmastertest.ui.widget.ExampleWidgetService
 
 class ExampleAppWidgetConfig : AppCompatActivity() {
 

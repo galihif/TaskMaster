@@ -1,19 +1,22 @@
-package com.giftech.taskmastertest
+package com.giftech.taskmastertest.ui
 
 import android.app.*
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.giftech.taskmastertest.adapter.TaskAdapter
-import com.giftech.taskmastertest.model.Task
-import com.giftech.taskmastertest.notification.ReminderBroadcast
-import com.giftech.taskmastertest.sign.SignInActivity
-import com.giftech.taskmastertest.utils.Preferences
+import com.giftech.taskmastertest.R
+import com.giftech.taskmastertest.core.adapter.TaskAdapter
+import com.giftech.taskmastertest.core.model.Task
+import com.giftech.taskmastertest.core.services.notification.ReminderBroadcast
+import com.giftech.taskmastertest.ui.sign.SignInActivity
+import com.giftech.taskmastertest.core.utils.Preferences
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
@@ -42,6 +45,7 @@ class HomeActivity : AppCompatActivity() {
     private var upcomingList: ArrayList<Task> = arrayListOf()
     private var taskList: ArrayList<Task> = arrayListOf()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -173,6 +177,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel() {
         var name:CharSequence = "Task Reminder"
         var description = "Reminder for task"

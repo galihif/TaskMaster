@@ -1,4 +1,4 @@
-package com.giftech.taskmastertest
+package com.giftech.taskmastertest.ui
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -10,9 +10,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.giftech.taskmastertest.adapter.TaskAdapter
-import com.giftech.taskmastertest.model.Task
-import com.giftech.taskmastertest.utils.Preferences
+import com.giftech.taskmastertest.R
+import com.giftech.taskmastertest.core.adapter.TaskAdapter
+import com.giftech.taskmastertest.core.model.Task
+import com.giftech.taskmastertest.core.utils.Preferences
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser

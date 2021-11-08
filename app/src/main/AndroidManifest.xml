@@ -11,27 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskMasterTest">
-        <activity android:name=".intro.Intro3Activity"></activity>
-        <activity android:name=".intro.Intro2Activity" />
-        <activity android:name=".intro.Intro1Activity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name="com.giftech.taskmastertest.ui.intro.Intro3Activity"></activity>
+        <activity android:name="com.giftech.taskmastertest.ui.intro.Intro2Activity" />
+        <activity android:name="com.giftech.taskmastertest.ui.intro.Intro1Activity" />
+        <activity android:name=".ui.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HistoryActivity" />
-        <activity android:name=".sign.SignInActivity" />
-        <activity android:name=".sign.SignUpActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".ui.HistoryActivity" />
+        <activity android:name="com.giftech.taskmastertest.ui.sign.SignInActivity" />
+        <activity android:name="com.giftech.taskmastertest.ui.sign.SignUpActivity" />
+        <activity android:name=".ui.HomeActivity" />
         <activity android:name=".ExampleAppWidgetConfig">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
 
-        <receiver android:name=".widget.ExampleWidgetProvider">
+        <receiver android:name="com.giftech.taskmastertest.ui.widget.ExampleWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -42,10 +42,10 @@
         </receiver>
 
         <service
-            android:name=".widget.ExampleWidgetService"
+            android:name="com.giftech.taskmastertest.ui.widget.ExampleWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <receiver android:name=".notification.ReminderBroadcast" />
+        <receiver android:name="com.giftech.taskmastertest.core.services.notification.ReminderBroadcast" />
     </application>
 
 </manifest>

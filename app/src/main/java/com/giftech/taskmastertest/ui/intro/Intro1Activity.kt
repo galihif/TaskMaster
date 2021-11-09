@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.giftech.taskmastertest.ui.HomeActivity
 import com.giftech.taskmastertest.R
-import com.giftech.taskmastertest.ui.sign.SignUpActivity
+import com.giftech.taskmastertest.ui.auth.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

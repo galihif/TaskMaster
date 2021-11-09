@@ -15,7 +15,7 @@ import com.giftech.taskmastertest.R
 import com.giftech.taskmastertest.core.adapter.TaskAdapter
 import com.giftech.taskmastertest.core.model.Task
 import com.giftech.taskmastertest.core.services.notification.ReminderBroadcast
-import com.giftech.taskmastertest.ui.sign.SignInActivity
+import com.giftech.taskmastertest.ui.auth.signin.SignInActivity
 import com.giftech.taskmastertest.core.utils.Preferences
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.material.dialog.MaterialAlertDialogBuilder

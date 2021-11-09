@@ -1,4 +1,4 @@
-package com.giftech.taskmastertest.ui.sign
+package com.giftech.taskmastertest.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import com.giftech.taskmastertest.ui.HomeActivity
 import com.giftech.taskmastertest.R
 import com.giftech.taskmastertest.core.model.User
 import com.giftech.taskmastertest.core.utils.Preferences
+import com.giftech.taskmastertest.ui.auth.signin.SignInActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions

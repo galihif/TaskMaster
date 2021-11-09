@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.giftech.taskmastertest.R
-import com.giftech.taskmastertest.ui.sign.SignUpActivity
+import com.giftech.taskmastertest.ui.auth.SignUpActivity
 import kotlinx.android.synthetic.main.activity_intro2.*
 
 class Intro2Activity : AppCompatActivity() {

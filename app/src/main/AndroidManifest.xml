@@ -22,8 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.HistoryActivity" />
-        <activity android:name="com.giftech.taskmastertest.ui.sign.SignInActivity" />
-        <activity android:name="com.giftech.taskmastertest.ui.sign.SignUpActivity" />
+        <activity android:name="com.giftech.taskmastertest.ui.auth.signin.SignInActivity" />
+        <activity android:name="com.giftech.taskmastertest.ui.auth.SignUpActivity" />
         <activity android:name=".ui.HomeActivity" />
         <activity android:name=".ExampleAppWidgetConfig">
             <intent-filter>

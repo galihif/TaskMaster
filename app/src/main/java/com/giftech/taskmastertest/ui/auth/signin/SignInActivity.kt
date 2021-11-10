@@ -11,9 +11,8 @@ import com.giftech.taskmastertest.ui.HomeActivity
 import com.giftech.taskmastertest.R
 import com.giftech.taskmastertest.core.model.User
 import com.giftech.taskmastertest.core.ui.ViewModelFactory
-import com.giftech.taskmastertest.ui.auth.SignUpActivity
+import com.giftech.taskmastertest.ui.auth.signup.SignUpActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.database.*

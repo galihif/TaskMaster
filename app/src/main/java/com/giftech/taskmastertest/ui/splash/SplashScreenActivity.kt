@@ -1,4 +1,4 @@
-package com.giftech.taskmastertest.ui
+package com.giftech.taskmastertest.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
@@ -25,6 +25,7 @@ class SplashScreenActivity : AppCompatActivity() {
             val intent = Intent(this,Intro1Activity::class.java)
             startActivity(intent)
             finish()
+            //todo: buat viewmodel untuk getuser, arahkan ke home ketika logged
         },TIME_OUT)
     }
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.giftech.taskmastertest.core.data.AuthRepository
 import com.giftech.taskmastertest.core.di.Injection
 import com.giftech.taskmastertest.ui.auth.signin.SignInViewModel
+import com.giftech.taskmastertest.ui.auth.signup.SignUpViewModel
 
 
 class ViewModelFactory private constructor(
@@ -32,6 +33,9 @@ class ViewModelFactory private constructor(
         when{
             modelClass.isAssignableFrom(SignInViewModel::class.java)->{
                 return SignInViewModel(mAuthRepository) as T
+            }
+            modelClass.isAssignableFrom(SignUpViewModel::class.java)->{
+                return SignUpViewModel(mAuthRepository) as T
             }
 
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)

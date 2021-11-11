@@ -20,5 +20,4 @@ class HomeViewModel(private val repository: TaskRepository):ViewModel() {
 
     fun signOut() = repository.signOut()
 
-
 }

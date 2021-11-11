@@ -33,6 +33,8 @@ class AuthRepository private constructor(private val application: Application) {
         val isLogged = MutableLiveData<Boolean>()
         if(auth.currentUser != null){
             isLogged.postValue(true)
+        }else{
+            isLogged.postValue(false)
         }
         return isLogged
     }

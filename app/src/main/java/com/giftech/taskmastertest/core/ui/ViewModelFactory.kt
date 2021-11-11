@@ -8,6 +8,7 @@ import com.giftech.taskmastertest.core.data.AuthRepository
 import com.giftech.taskmastertest.core.di.Injection
 import com.giftech.taskmastertest.ui.auth.signin.SignInViewModel
 import com.giftech.taskmastertest.ui.auth.signup.SignUpViewModel
+import com.giftech.taskmastertest.ui.splash.SplashViewModel
 
 
 class ViewModelFactory private constructor(
@@ -36,6 +37,9 @@ class ViewModelFactory private constructor(
             }
             modelClass.isAssignableFrom(SignUpViewModel::class.java)->{
                 return SignUpViewModel(mAuthRepository) as T
+            }
+            modelClass.isAssignableFrom(SplashViewModel::class.java)->{
+                return SplashViewModel(mAuthRepository) as T
             }
 
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)

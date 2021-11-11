@@ -27,10 +27,7 @@ import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth
-    private lateinit var database: DatabaseReference
     private lateinit var tUser:User
-    private lateinit var preferences:Preferences
     private val RC_SIGN_IN = 9001
     private val TAG = "SignInActivity"
 
@@ -42,9 +39,6 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up)
 
         // Initialize
-        auth = Firebase.auth
-        database = FirebaseDatabase.getInstance().reference
-        preferences = Preferences(this)
         tUser = User()
 
         val factory = ViewModelFactory.getInstance(application)
@@ -119,14 +113,6 @@ class SignUpActivity : AppCompatActivity() {
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         val signInIntent = mGoogleSignInClient?.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
-    }
-
-    public override fun onStart() {
-        super.onStart()
-        viewModel.getUser().observe(this, {isLogged ->
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

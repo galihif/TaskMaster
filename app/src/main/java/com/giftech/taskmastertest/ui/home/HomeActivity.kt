@@ -33,18 +33,10 @@ import java.util.*
 
 class HomeActivity : AppCompatActivity() {
 
-
-    private lateinit var database: DatabaseReference
-    private val mGoogleSignInClient: GoogleSignInClient? = null
-    private lateinit var auth: FirebaseAuth
     private lateinit var user:FirebaseUser
 
     private lateinit var userId: String
     private lateinit var userName:String
-
-    private var todayList: ArrayList<Task> = arrayListOf()
-    private var upcomingList: ArrayList<Task> = arrayListOf()
-    private var taskList: ArrayList<Task> = arrayListOf()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,19 +80,12 @@ class HomeActivity : AppCompatActivity() {
             showLoading(it)
         })
 
-        //Initialize
-        database = FirebaseDatabase.getInstance().reference
-        auth = Firebase.auth
-
-//        createNotificationChannel()
-
         btn_logout.setOnClickListener {
             viewModel.signOut()
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
         }
 
-        //Action saat btn_add diklik
         btn_add.setOnClickListener {
             //Inisiasi view material dialog
             val dialog = MaterialAlertDialogBuilder(this, R.style.MaterialAlertDialog_Rounded)
@@ -187,7 +172,6 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-        //Action saat btn_history diklik
         btn_history.setOnClickListener {
             val intent = Intent(this, HistoryActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
@@ -211,36 +195,5 @@ class HomeActivity : AppCompatActivity() {
             spinner_home.visibility = View.GONE
         }
     }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun createNotificationChannel() {
-        var name:CharSequence = "Task Reminder"
-        var description = "Reminder for task"
-        var importance = NotificationManager.IMPORTANCE_DEFAULT
-
-        var channel = NotificationChannel("notifyTaskmaster", name, importance)
-        channel.description = description
-
-        var notificationManager = getSystemService(NotificationManager::class.java)
-        notificationManager.createNotificationChannel(channel)
-    }
-
-    private fun setNotification(task: Task, code:Int) {
-
-        var intent = Intent(this, ReminderBroadcast::class.java)
-        intent.putExtra("title", task.title)
-        var pendingIntent = PendingIntent.getBroadcast(this, code, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-
-        val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
-
-        if(task.timeMillis.toLong() >= System.currentTimeMillis()){
-            alarmManager.set(AlarmManager.RTC_WAKEUP, task.timeMillis.toLong(), pendingIntent)
-        }
-    }
-
-    private fun addTaskToFirebase(task: Task) {
-
-    }
-
 
 }

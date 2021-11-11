@@ -1,4 +1,4 @@
-package com.giftech.taskmastertest.ui
+package com.giftech.taskmastertest.ui.home
 
 import android.app.*
 import android.content.Intent
@@ -9,14 +9,15 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.giftech.taskmastertest.R
 import com.giftech.taskmastertest.core.adapter.TaskAdapter
 import com.giftech.taskmastertest.core.model.Task
 import com.giftech.taskmastertest.core.services.notification.ReminderBroadcast
+import com.giftech.taskmastertest.core.ui.ViewModelFactory
 import com.giftech.taskmastertest.ui.auth.signin.SignInActivity
-import com.giftech.taskmastertest.core.utils.Preferences
+import com.giftech.taskmastertest.ui.history.HistoryActivity
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
@@ -25,6 +26,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.add_task_popup.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,7 +35,6 @@ class HomeActivity : AppCompatActivity() {
 
 
     private lateinit var database: DatabaseReference
-    private lateinit var preferences: Preferences
     private val mGoogleSignInClient: GoogleSignInClient? = null
     private lateinit var auth: FirebaseAuth
     private lateinit var user:FirebaseUser
@@ -50,43 +51,60 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        val factory = ViewModelFactory.getInstance(this.application)
+        val viewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
+        val todayAdapter = TaskAdapter()
+        val upcomingAdapter = TaskAdapter()
+
+        viewModel.user.observe(this, {
+            user = it
+            userId = user.uid
+            userName = user.displayName.toString()
+
+            tv_hello.text = getString(R.string.hello_user)+" "+userName+"!"
+        })
+
+        viewModel.getTodayTask(setTodayDate()).observe(this, { listTask ->
+            todayAdapter.setList(listTask)
+        })
+
+        with(rv_today){
+            layoutManager = LinearLayoutManager(this@HomeActivity)
+            adapter = todayAdapter
+            isNestedScrollingEnabled = false
+        }
+
+        viewModel.getUpcomingTask(setTodayDate()).observe(this, {
+            upcomingAdapter.setList(it)
+        })
+
+        with(rv_upcoming){
+            layoutManager = LinearLayoutManager(this@HomeActivity)
+            adapter = upcomingAdapter
+            isNestedScrollingEnabled = false
+        }
+
+        viewModel.loading.observe(this, {
+            showLoading(it)
+        })
+
         //Initialize
         database = FirebaseDatabase.getInstance().reference
-        preferences = Preferences(this)
         auth = Firebase.auth
 
-        //User
-        user = auth.currentUser
-        userId = user.uid.toString()
-        userName = user.displayName.toString()
-
-        tv_hello.text = getString(R.string.hello_user)+" "+userName+"!"
-
-        //Calendar
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH) + 1
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val date = String.format("%02d/%02d/%04d", day, month, year)
-
-        addDataToList(date)
-        setTaskAdapter(rv_today, todayList)
-        setTaskAdapter(rv_upcoming, upcomingList)
-        createNotificationChannel()
+//        createNotificationChannel()
 
         btn_logout.setOnClickListener {
-            Firebase.auth.signOut()
-            preferences.setValues("userName", "")
-            preferences.setValues("userId", "")
-            var intent = Intent(this, SignInActivity::class.java)
+            viewModel.signOut()
+            val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
         }
 
         //Action saat btn_add diklik
         btn_add.setOnClickListener {
             //Inisiasi view material dialog
-            var dialog = MaterialAlertDialogBuilder(this, R.style.MaterialAlertDialog_Rounded)
-            var view: View = layoutInflater.inflate(R.layout.add_task_popup, null)
+            val dialog = MaterialAlertDialogBuilder(this, R.style.MaterialAlertDialog_Rounded)
+            val view: View = layoutInflater.inflate(R.layout.add_task_popup, null)
             dialog.setView(view)
             val alertDialog = dialog.create()
 
@@ -112,7 +130,7 @@ class HomeActivity : AppCompatActivity() {
                     etAddTime.requestFocus()
                     etAddTime.error = "Fill time"
                 } else{
-                    addTaskToFirebase(task)
+                    viewModel.addNewTask(task)
                     alertDialog.dismiss()
                 }
             }
@@ -171,9 +189,26 @@ class HomeActivity : AppCompatActivity() {
 
         //Action saat btn_history diklik
         btn_history.setOnClickListener {
-            var intent = Intent(this, HistoryActivity::class.java)
+            val intent = Intent(this, HistoryActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
+        }
+    }
+
+    private fun setTodayDate(): String {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH) + 1
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val date = String.format("%02d/%02d/%04d", day, month, year)
+        return date
+    }
+
+    private fun showLoading(isLoading:Boolean){
+        if(isLoading){
+            spinner_home.visibility = View.VISIBLE
+        } else{
+            spinner_home.visibility = View.GONE
         }
     }
 
@@ -203,92 +238,9 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-
     private fun addTaskToFirebase(task: Task) {
-        val newTask = database
-                .child("users")
-                .child(userId)
-                .child("tasks")
-                .push()
-        task.id = newTask.key.toString()
 
-        val givenDateString = task.time+" "+task.date
-        val sdf = SimpleDateFormat("HH:mm dd/MM/yyyy")
-        val mDate: Date = sdf.parse(givenDateString)
-        val timeInMilliseconds = mDate.time
-        task.timeMillis = timeInMilliseconds.toString()
-
-        newTask.setValue(task)
     }
 
-    private fun setTaskAdapter(recyclerView: RecyclerView?, list: java.util.ArrayList<Task>) {
-        recyclerView!!.layoutManager = LinearLayoutManager(this)
-        val taskAdapter = TaskAdapter(this, list)
-        recyclerView.adapter = taskAdapter
-        recyclerView.setNestedScrollingEnabled(false);
-    }
 
-    private fun addDataToList(date: String) {
-        spinner_home.visibility = View.VISIBLE
-        //ValueEventListener untuk mengambil data dari firebase dengan child goal user tsb
-        database
-                .child("users")
-                .child(userId)
-                .child("tasks")
-                .orderByChild("timeMillis")
-                .addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        //Hapus data dalam arraylist agar tidak jadi penumpukan data
-                        todayList.clear()
-                        upcomingList.clear()
-
-                        //Ambil semua child dalam goal dan masukan ke items
-                        var items = snapshot.children
-                        //Lakukan iterasi pada setiap item lalu buat class dan tambahkan ke list
-                        items.forEach {
-                            var task = it.getValue(Task::class.java)
-                            if (task!!.completed == false) {
-                                if (task!!.date.equals(date)) {
-                                    todayList.add(task)
-                                } else {
-                                    upcomingList.add(task)
-                                }
-                                taskList.add(task)
-                            }
-                        }
-                        refreshList()
-
-
-                        spinner_home.visibility = View.INVISIBLE
-
-                        if (todayList.size == 0) {
-                            tv_no_task_today.visibility = View.VISIBLE
-                        } else {
-                            tv_no_task_today.visibility = View.GONE
-                        }
-
-                        if (upcomingList.size == 0) {
-                            tv_no_task_upcoming.visibility = View.VISIBLE
-                        } else {
-                            tv_no_task_upcoming.visibility = View.GONE
-                        }
-
-                        taskList.forEach {
-                            setNotification(it, taskList.indexOf(it))
-                        }
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {
-                        TODO("Not yet implemented")
-                    }
-
-                })
-    }
-
-    fun refreshList() {
-        val todayAdapter = TaskAdapter(this, todayList)
-        val upcomingAdapter = TaskAdapter(this, upcomingList)
-        rv_today.adapter = todayAdapter
-        rv_upcoming.adapter = upcomingAdapter
-    }
 }

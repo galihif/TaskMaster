@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.giftech.taskmastertest.ui.HomeActivity
+import com.giftech.taskmastertest.ui.home.HomeActivity
 import com.giftech.taskmastertest.R
 import com.giftech.taskmastertest.core.model.User
 import com.giftech.taskmastertest.core.ui.ViewModelFactory

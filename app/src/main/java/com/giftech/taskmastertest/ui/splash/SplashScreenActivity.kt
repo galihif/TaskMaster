@@ -9,8 +9,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.giftech.taskmastertest.R
 import com.giftech.taskmastertest.core.ui.ViewModelFactory
-import com.giftech.taskmastertest.ui.HomeActivity
-import com.giftech.taskmastertest.ui.auth.signup.SignUpViewModel
+import com.giftech.taskmastertest.ui.home.HomeActivity
 import com.giftech.taskmastertest.ui.intro.Intro1Activity
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -28,7 +27,7 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler().postDelayed({
             viewModel.getUser().observe(this, {isLogged ->
                 if(isLogged){
-                    val intent = Intent(this,HomeActivity::class.java)
+                    val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                     Log.d(javaClass.simpleName, "logged")
                 } else{

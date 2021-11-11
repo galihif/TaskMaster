@@ -1,12 +1,10 @@
 package com.giftech.taskmastertest.core.data
 
 import android.app.Application
-import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.giftech.taskmastertest.core.model.User
-import com.giftech.taskmastertest.ui.HomeActivity
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
@@ -38,7 +36,6 @@ class AuthRepository private constructor(private val application: Application) {
         }
         return isLogged
     }
-
 
     fun signUp(mUser: User):LiveData<Boolean>{
         val isLogged = MutableLiveData<Boolean>()

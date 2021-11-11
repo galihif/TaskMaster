@@ -7,21 +7,14 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.giftech.taskmastertest.ui.HomeActivity
+import com.giftech.taskmastertest.ui.home.HomeActivity
 import com.giftech.taskmastertest.R
 import com.giftech.taskmastertest.core.model.User
 import com.giftech.taskmastertest.core.ui.ViewModelFactory
-import com.giftech.taskmastertest.core.utils.Preferences
 import com.giftech.taskmastertest.ui.auth.signin.SignInActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 

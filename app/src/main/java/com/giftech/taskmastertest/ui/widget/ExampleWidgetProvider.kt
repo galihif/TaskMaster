@@ -10,7 +10,7 @@ import android.os.Bundle
 import android.widget.RemoteViews
 import android.widget.Toast
 import com.giftech.taskmastertest.ExampleAppWidgetConfig
-import com.giftech.taskmastertest.ui.HomeActivity
+import com.giftech.taskmastertest.ui.home.HomeActivity
 import com.giftech.taskmastertest.R
 
 

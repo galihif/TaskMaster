@@ -1,4 +1,4 @@
-package com.giftech.taskmastertest.ui
+package com.giftech.taskmastertest.ui.history
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -8,12 +8,10 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.giftech.taskmastertest.R
-import com.giftech.taskmastertest.core.adapter.TaskAdapter
 import com.giftech.taskmastertest.core.model.Task
 import com.giftech.taskmastertest.core.utils.Preferences
+import com.giftech.taskmastertest.ui.home.HomeActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -48,7 +46,7 @@ class HistoryActivity : AppCompatActivity() {
 
         tv_completed.text = userName+" "+getString(R.string.user_completed_task)
         addDataToList()
-        setTaskAdapter(rv_completed, completedList)
+//        setTaskAdapter(rv_completed, completedList)
 
 
         //Action saat btn_add diklik
@@ -137,11 +135,11 @@ class HistoryActivity : AppCompatActivity() {
         newTask.setValue(task)
     }
 
-    private fun setTaskAdapter(rvCompleted: RecyclerView?, completedList: ArrayList<Task>) {
-        rvCompleted!!.layoutManager = LinearLayoutManager(this)
-        val completedAdapter = TaskAdapter(this, completedList)
-        rvCompleted.adapter = completedAdapter
-    }
+//    private fun setTaskAdapter(rvCompleted: RecyclerView?, completedList: ArrayList<Task>) {
+//        rvCompleted!!.layoutManager = LinearLayoutManager(this)
+//        val completedAdapter = TaskAdapter(this, completedList)
+//        rvCompleted.adapter = completedAdapter
+//    }
 
     private fun addDataToList() {
         database
@@ -158,7 +156,7 @@ class HistoryActivity : AppCompatActivity() {
                                 completedList.add(task)
                             }
                         }
-                        refreshList()
+//                        refreshList()
                         if(completedList.isEmpty()){
                             tv_no_task_upcoming.visibility = View.VISIBLE
                         }
@@ -170,9 +168,9 @@ class HistoryActivity : AppCompatActivity() {
                 })
     }
 
-    private fun refreshList() {
-        val completedAdapter = TaskAdapter(this, completedList)
-        rv_completed.adapter = completedAdapter
-    }
+//    private fun refreshList() {
+//        val completedAdapter = TaskAdapter(this, completedList)
+//        rv_completed.adapter = completedAdapter
+//    }
 
 }

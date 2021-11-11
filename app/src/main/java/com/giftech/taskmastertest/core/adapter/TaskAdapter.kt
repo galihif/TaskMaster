@@ -18,13 +18,18 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
-class TaskAdapter(mContext: Context, private var taskList: ArrayList<Task>)
-    : RecyclerView.Adapter<TaskAdapter.ItemViewHolder>() {
+class TaskAdapter() : RecyclerView.Adapter<TaskAdapter.ItemViewHolder>() {
 
-    private var mContext = mContext
+    private var listTask = arrayListOf<Task>()
+
+    fun setList(list:List<Task>){
+        listTask.clear()
+        listTask.addAll(list)
+        notifyDataSetChanged()
+    }
 
 
-    class ItemViewHolder(private val view: View, context: Context): RecyclerView.ViewHolder(view) {
+    class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         private lateinit var database: DatabaseReference
         private lateinit var preferences: Preferences
         private lateinit var auth:FirebaseAuth
@@ -35,7 +40,6 @@ class TaskAdapter(mContext: Context, private var taskList: ArrayList<Task>)
         val tvTaskTime: TextView = view.findViewById(R.id.tv_task_time)
         val btnDelete: ImageView = view.findViewById(R.id.btn_delete)
         val btnCheck: ImageView = view.findViewById(R.id.btn_check)
-        val context = context
 
         fun bindItem(task: Task){
             tvTaskTitle.setText(task.title)
@@ -43,7 +47,7 @@ class TaskAdapter(mContext: Context, private var taskList: ArrayList<Task>)
             tvTaskTime.setText(task.time)
 
             database = FirebaseDatabase.getInstance().reference
-            preferences = Preferences(context)
+//            preferences = Preferences(context)
             auth = Firebase.auth
             user = auth.currentUser
 
@@ -53,27 +57,27 @@ class TaskAdapter(mContext: Context, private var taskList: ArrayList<Task>)
                 btnCheck.setImageResource(R.drawable.ic_completed)
             }
 
-            btnDelete.setOnClickListener {
-                val item = database
-                        .child("users")
-                        .child(user.uid)
-                        .child("tasks")
-                        .child(task.id.toString())
-                item.removeValue()
-                Toast.makeText(context,"Task ${task.title} deleted", Toast.LENGTH_LONG).show()
-            }
+//            btnDelete.setOnClickListener {
+//                val item = database
+//                        .child("users")
+//                        .child(user.uid)
+//                        .child("tasks")
+//                        .child(task.id.toString())
+//                item.removeValue()
+//                Toast.makeText(context,"Task ${task.title} deleted", Toast.LENGTH_LONG).show()
+//            }
 
-            btnCheck.setOnClickListener {
-                task.completed = !task.completed
-                database.child("users")
-                        .child(user.uid)
-                        .child("tasks")
-                        .child(task.id.toString())
-                        .child("completed")
-                        .setValue(task.completed)
-
-                Toast.makeText(context,"Task ${task.title} Completed", Toast.LENGTH_LONG).show()
-            }
+//            btnCheck.setOnClickListener {
+//                task.completed = !task.completed
+//                database.child("users")
+//                        .child(user.uid)
+//                        .child("tasks")
+//                        .child(task.id.toString())
+//                        .child("completed")
+//                        .setValue(task.completed)
+//
+//                Toast.makeText(context,"Task ${task.title} Completed", Toast.LENGTH_LONG).show()
+//            }
 
         }
     }
@@ -82,17 +86,15 @@ class TaskAdapter(mContext: Context, private var taskList: ArrayList<Task>)
         val adapterLayout = LayoutInflater
                 .from(parent.context)
                 .inflate(R.layout.item_task, parent, false)
-        return ItemViewHolder(adapterLayout, mContext)
+        return ItemViewHolder(adapterLayout)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val task = taskList[position]
+        val task = listTask[position]
         holder.bindItem(task)
     }
 
-    override fun getItemCount(): Int {
-        return taskList.size
-    }
+    override fun getItemCount() = listTask.size
 
 
 }

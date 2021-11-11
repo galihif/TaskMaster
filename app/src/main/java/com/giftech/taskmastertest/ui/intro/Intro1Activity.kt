@@ -3,7 +3,7 @@ package com.giftech.taskmastertest.ui.intro
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.giftech.taskmastertest.ui.HomeActivity
+import com.giftech.taskmastertest.ui.home.HomeActivity
 import com.giftech.taskmastertest.R
 import com.giftech.taskmastertest.ui.auth.signup.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth

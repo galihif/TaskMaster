@@ -10,6 +10,7 @@ import com.giftech.taskmastertest.core.model.User
 class HomeViewModel(private val repository: TaskRepository):ViewModel() {
 
     val user = repository.user
+
     val loading = repository.isLoading
 
     fun getTodayTask(todayDate:String):LiveData<List<Task>> = repository.getTodayTask(todayDate)
